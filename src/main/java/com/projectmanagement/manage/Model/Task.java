@@ -20,7 +20,7 @@ public class Task {
     @Column(name = "Priority")
     private PriorityEnum priority;
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "postTotalScoreId", referencedColumnName = "postTotalScoreId")
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
     private AppUser appUser;
 
 }
