@@ -19,6 +19,7 @@ public class AppUser {
     private Long userId;
     private String firstName;
     private String lastName;
+    private String fullName;
     private String email;
     private String jobTitle;
 
