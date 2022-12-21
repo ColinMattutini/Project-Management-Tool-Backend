@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
 
@@ -14,15 +16,14 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource(){
-         final CorsConfiguration config = new CorsConfiguration();
-         config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:3000/Projects/forumapplication"));
-         config.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT"));
-         config.setAllowCredentials(true);
-         config.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Control-Type", "Content-Type"));
-
-         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-         source.registerCorsConfiguration("/**", config);
-         return source;
+    public WebMvcConfigurer corsConfigurer(){
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry
+                        .addMapping("/**")
+                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
+            }
+        };
     }
 }
