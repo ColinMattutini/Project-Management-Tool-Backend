@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AppUserRepo extends JpaRepository<AppUser, Long> {
     AppUser findByFullName(String fullName);
+    AppUser findByEmail(String email);
 }

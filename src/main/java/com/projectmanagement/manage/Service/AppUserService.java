@@ -8,6 +8,7 @@ public interface AppUserService {
 
     List<AppUser> getAllUsers();
     AppUser getUser(String fullName);
+    AppUser getByEmail(String email);
 
     void saveAppUser(AppUser appUser);
 }
