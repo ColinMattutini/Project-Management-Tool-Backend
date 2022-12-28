@@ -21,6 +21,7 @@ public class AppUser {
     private String lastName;
     private String fullName;
     private String email;
+    private String password;
     private String jobTitle;
 
 }
