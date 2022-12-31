@@ -24,4 +24,9 @@ public class AppUserController {
     public void saveAppUser(@RequestBody AppUser appUser){
         appUserService.saveAppUser(appUser);
     }
+
+    @GetMapping("/testhello")
+    public String sendHello(){
+        return "Hello";
+    }
 }
